@@ -50,6 +50,10 @@ export default class Array_Dynamic<E> {
 		return this.data[this.data.length - 1]
 	}
 
+	public getFirst = () => {
+		return this.data[0]
+	}
+
 	// 修改index索引位置的元素
 	public set = (index: number, e: E): void => {
 		if (index < 0 || index > this.size) throw new RangeError('Add failed, Require index >= 0 and index <= size.')
