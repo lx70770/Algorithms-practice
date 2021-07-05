@@ -5,7 +5,7 @@ class Array_<E> {
 	// ts类构造函数是可以重载的 但是规则和Java有点区别
 	constructor(capacity?: number)
 	constructor(capacity: number) {
-		this.data = Array(capacity)
+		this.data = Array(capacity || 10)
 		this.size = 0
 	}
 

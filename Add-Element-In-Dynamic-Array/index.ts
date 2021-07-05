@@ -1,11 +1,11 @@
-class Array_Dynamic<E> {
+export default class Array_Dynamic<E> {
 	private data: E[]
 	private size: number
 
 	// ts类构造函数是可以重载的 但是规则和Java有点区别
 	constructor(capacity?: number)
 	constructor(capacity: number) {
-		this.data = Array(capacity)
+		this.data = Array(capacity || 10)
 		this.size = 0
 	}
 
@@ -43,6 +43,11 @@ class Array_Dynamic<E> {
 	public get = (index: number): E => {
 		if (index < 0 || index > this.size) throw new RangeError('Add failed, Require index >= 0 and index <= size.')
 		return this.data[index]
+	}
+
+	// 获取最后一个元素
+	public getLast = () => {
+		return this.data[this.data.length - 1]
 	}
 
 	// 修改index索引位置的元素
