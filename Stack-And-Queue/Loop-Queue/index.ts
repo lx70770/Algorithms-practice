@@ -54,8 +54,6 @@ class LoopQueue<E> implements Queue<E> {
 		return ret
 	}
 
-
-
     private resize = (newCapacity: number) => {
         let newData = Array(newCapacity + 1)
         for (let i = 0; i < this.data.length; i++) {
