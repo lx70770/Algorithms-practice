@@ -17,3 +17,6 @@
 - 模拟栈和队列
 - Array-Queue
 - Array-Stack
+
+#### 6、Linked-List
+- 加入dummyHead减少麻烦
