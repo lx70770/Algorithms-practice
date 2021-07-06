@@ -13,7 +13,7 @@ class LinkedListWithDummyHead<E> {
 
 	public addFirst = (e: E): void => this.add(0, e)
 
-    // 引入dummyHead减少了很多不必要的麻烦
+	// 引入dummyHead减少了很多不必要的麻烦
 	public add = (index: number, e: E) => {
 		if (index < 0 || index > this.size) {
 			throw new RangeError('Illegal index.')
@@ -28,4 +28,41 @@ class LinkedListWithDummyHead<E> {
 	}
 
 	public addLast = (e: E) => this.add(this.size, e)
+
+	public get = (index: number): E => {
+		if (index < 0 || index > this.size) {
+			throw new RangeError('Illegal index.')
+		}
+		let cur = this.dummyHead.next
+		for (let i = 0; i < index; i++) {
+			cur = cur.next
+		}
+		return cur.e
+	}
+
+	public getFirst = () => this.get(0)
+
+	public getLast = () => this.get(this.size - 1)
+
+	public set = (index: number, e: E) => {
+		if (index < 0 || index > this.size) {
+			throw new RangeError('Illegal index.')
+		}
+		let cur = this.dummyHead.next
+		for (let i = 0; i < index; i++) {
+			cur = cur.next
+		}
+		cur.e = e
+	}
+
+	public contains = (e: E) => {
+		let cur = this.dummyHead.next
+		while (cur) {
+			if (cur.e === e) {
+				return true
+			}
+			cur = cur.next
+		}
+		return false
+	}
 }
