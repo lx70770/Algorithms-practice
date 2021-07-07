@@ -65,4 +65,22 @@ class LinkedListWithDummyHead<E> {
 		}
 		return false
 	}
+
+	public remove = (index: number): E => {
+		if (index < 0 || index > this.size) {
+			throw new RangeError('Illegal index.')
+		}
+		let prev = this.dummyHead
+		for (let i = 0; i < index; i++) {
+			prev = prev.next
+		}
+		let cur = prev.next
+		prev.next = cur.next
+		cur.next = null
+		this.size--
+		return cur.e
+	}
+	public removeFirst = () => this.remove(0)
+
+	public removeLast = () => this.remove(this.size - 1)
 }
